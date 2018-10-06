@@ -1,3 +1,5 @@
+#!/bin/bash
+
 FILE=$1
 
 if [[ $FILE != "ae_photos" && $FILE != "apple2orange" && $FILE != "summer2winter_yosemite" &&  $FILE != "horse2zebra" && $FILE != "monet2photo" && $FILE != "cezanne2photo" && $FILE != "ukiyoe2photo" && $FILE != "vangogh2photo" && $FILE != "maps" && $FILE != "cityscapes" && $FILE != "facades" && $FILE != "iphone2dslr_flower" && $FILE != "ae_photos" ]]; then
@@ -8,7 +10,7 @@ fi
 URL=https://people.eecs.berkeley.edu/~taesung_park/CycleGAN/datasets/$FILE.zip
 ZIP_FILE=./input/$FILE.zip
 TARGET_DIR=./input/$FILE/
+mkdir -p $TARGET_DIR
 wget -N $URL -O $ZIP_FILE
-mkdir $TARGET_DIR
 unzip $ZIP_FILE -d ./input/
 rm $ZIP_FILE
